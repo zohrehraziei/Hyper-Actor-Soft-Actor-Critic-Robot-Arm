@@ -13,16 +13,16 @@ from rewards import *
 
 """
 Classes:
-    - ddpg_agent: Main class for the DDPG agent.
-        - __init__: Initializes the agent, networks, and other components including HyperNet.
-        - learn: Main method to train the agent using both its own networks and HyperNet.
-        - _preproc_inputs: Preprocesses inputs for the network.
-        - _select_actions: Selects actions based on current policy.
-        - _update_normalizer: Updates observation and goal normalizers.
-        - _soft_update_target_network: Softly updates the target networks.
-        - _update_network: Updates the actor and critic networks using HyperNet for advanced policy updates.
-        - _eval_agent: Evaluates the agent's performance.
-        - load_model: Loads model weights and normalizer stats.
+    - ac_agent: Main class for the AC agent.
+    - __init__: Initializes the agent, networks, and other components including HyperNet.
+    - learn: Main method to train the agent using both its own networks and HyperNet.
+    - _preproc_inputs: Preprocesses inputs for the network.
+    - _select_actions: Selects actions based on current policy.
+    - _update_normalizer: Updates observation and goal normalizers.
+    - _soft_update_target_network: Softly updates the target networks.
+    - _update_network: Updates the actor and critic networks using HyperNet for advanced policy updates.
+    - _eval_agent: Evaluates the agent's performance.
+    - load_model: Loads model weights and normalizer stats.
 
 Functions:
     - plot_successrate: Plots the success rate over epochs.
@@ -59,13 +59,13 @@ def plot_returntask(success_rate, filename2, x=None, window=5):
 
 
 """
-ddpg with HER (MPI-version)
+AC with HER (MPI-version)
 
 """
 filename = 'Results\push-v1'
 #goal = np.array([0.1 , 0.8 , 0.02])
 
-class ddpg_agent:
+class ac_agent:
     def __init__(self, args, env, env_params, modules,HyperNet):
         self.args = args
         self.env = env
