@@ -29,7 +29,10 @@ Functions:
     - plot_returntask: Plots the average return over epochs.
 
 HyperNet Usage:
-    The HyperNet plays a dual role in this implementation. Firstly, it enhances the actor network's policy learning, providing an advanced approach to policy optimization. Secondly, it is utilized for transfer learning purposes. By leveraging the pre-trained models in HyperNet, the AC agent can effectively transfer knowledge from previous tasks or environments, thereby improving learning efficiency and adaptation in new, but similar, tasks or environments.
+    The HyperNet plays a dual role in this implementation. Firstly, it enhances the actor network's policy learning,
+    providing an advanced approach to policy optimization. Secondly, it is utilized for transfer learning purposes.
+    By leveraging the pre-trained models in HyperNet, the AC agent can effectively transfer knowledge from previous tasks or environments,
+    thereby improving learning efficiency and adaptation in new, but similar, tasks or environments.
 
 """
 
