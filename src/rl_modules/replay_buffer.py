@@ -2,9 +2,14 @@ import threading
 import numpy as np
 
 """
-the replay buffer here is basically from the openai baselines code
+A replay buffer for storing and sampling experiences in reinforcement learning.
 
+Methods:
+    store_episode(episode_batch): Stores a batch of episodes in the buffer.
+    sample(batch_size): Samples a batch of data from the buffer.
+    _get_storage_idx(inc): Returns an index for storing an episode in the buffer.
 """
+
 class replay_buffer:
     def __init__(self, env_params, buffer_size, sample_func):
         self.env_params = env_params
