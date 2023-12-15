@@ -3,7 +3,7 @@ import gym
 import os, sys
 from arguments import get_args
 from mpi4py import MPI
-from rl_modules.ddpg_agent import ddpg_agent
+from rl_modules.AC_agent import AC_agent
 import random
 import torch
 from rl_modules.models import actor, critic
@@ -46,7 +46,7 @@ def launch(args):
     env = SawyerReachPushPickPlaceEnv()
     env_params = get_env_params(env)
     HyperNet = hyper_network(args,env_params)
-    # create the ddpg_agent
+    # create the ac_agent
     for task in range(tot_task):
         #task = 1
         env.obs_type = 'with_goal'
@@ -55,9 +55,9 @@ def launch(args):
         env.max_path_length = 700
         #env.set_parameters(obs_type='with_goal', random_init=True, task_type='reach')
         env.reset_model()
-        ddpg_trainer = ddpg_agent(args, env, env_params,[modules[i] for i in task_module[task]],HyperNet)
-        #ddpg_trainer.load_model(ddpg_trainer.model_path + '/model.pt')
-        ddpg_trainer.learn(tasks[task],HyperNet)
+        ac_trainer = ac_agent(args, env, env_params,[modules[i] for i in task_module[task]],HyperNet)
+        #ac_trainer.load_model(ac_trainer.model_path + '/model.pt')
+        ac_trainer.learn(tasks[task],HyperNet)
 
 
 if __name__ == '__main__':
