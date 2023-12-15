@@ -11,6 +11,27 @@ from her_modules.her import her_sampler
 import matplotlib.pyplot as plt
 from rewards import *
 
+"""
+Classes:
+    - ddpg_agent: Main class for the DDPG agent.
+        - __init__: Initializes the agent, networks, and other components including HyperNet.
+        - learn: Main method to train the agent using both its own networks and HyperNet.
+        - _preproc_inputs: Preprocesses inputs for the network.
+        - _select_actions: Selects actions based on current policy.
+        - _update_normalizer: Updates observation and goal normalizers.
+        - _soft_update_target_network: Softly updates the target networks.
+        - _update_network: Updates the actor and critic networks using HyperNet for advanced policy updates.
+        - _eval_agent: Evaluates the agent's performance.
+        - load_model: Loads model weights and normalizer stats.
+
+Functions:
+    - plot_successrate: Plots the success rate over epochs.
+    - plot_returntask: Plots the average return over epochs.
+
+HyperNet Usage:
+    The HyperNet plays a dual role in this implementation. Firstly, it enhances the actor network's policy learning, providing an advanced approach to policy optimization. Secondly, it is utilized for transfer learning purposes. By leveraging the pre-trained models in HyperNet, the AC agent can effectively transfer knowledge from previous tasks or environments, thereby improving learning efficiency and adaptation in new, but similar, tasks or environments.
+
+"""
 
 def plot_successrate(success_rate, filename2, x=None, window=5):
 
