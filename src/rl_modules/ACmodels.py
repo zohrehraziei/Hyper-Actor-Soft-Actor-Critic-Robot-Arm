@@ -3,11 +3,26 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 """
-the input x in both networks should be [o, g], where o is the observation and g is the goal.
-
+Classes:
+    - actor: Defines the actor-network architecture.
+        - forward(x): Forward pass through the actor-network.
+    - actor_module_init: Variation of the actor-network with initial parameters.
+        - forward(x): Forward pass through the network.
+    - actor_module_mid: Mid-level variation of the actor-network.
+        - forward(x): Forward pass through the network.
+    - critic: Defines the critic network architecture.
+        - forward(x, actions): Forward pass through the critic network.
+    - critic_module_init: Variation of the critic network with initial parameters.
+        - forward(x, actions): Forward pass through the network.
+    - critic_module_mid: Mid-level variation of the critic network.
+        - forward(x, actions): Forward pass through the network.
 """
 
-# define the actor network
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+# Class definitions for actor and critic networks go here
 class actor(nn.Module):
     def __init__(self, env_params):
         super(actor, self).__init__()
